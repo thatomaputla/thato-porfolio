@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+    body {
+      background: #eef2f7;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .profile-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid #0077b5;
+      animation: slideDown 1s ease;
+    }
+
+    h1 { font-size: 28px; margin-bottom: 5px; }
+
+    .title { color: #666; margin-bottom: 15px; }
+
+    .links a {
+      display: inline-block;
+      margin: 5px;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: white;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .linkedin { background: #0077b5; }
+    .github { background: #333; }
+    .cv { background: #28a745; }
+
+    .links a:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+
+    /* Scroll Animation Setup */
+    .section {
+      max-width: 800px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.6s ease;
+    }
+
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section h2 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: #0077b5;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #777;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="../images/self-image.jpeg" alt="Profile Picture" class="profile-img">
+    <h1>Thato Maputla</h1>
+    <p class="title">Network Engineer | IT Enthusiast</p>
+
+    <div class="links">
+      <a href="https://www.linkedin.com/in/thato-maputla-b835bb180" target="_blank" class="linkedin">LinkedIn</a>
+      <a href="https://github.com/thatomaputla" target="_blank" class="github">GitHub</a>
+      <a href="../docs/Thato_Maputla_Resume.pdf" download class="cv">Download CV</a>
+    </div>
+  </header>
+
+  <div class="section">
+    <h2>About Me</h2>
+    <p>
+      Cisco Certified IT professional with substantial skills in network design, system support, and programming. Proficient in server setup,
+      VLANs, DHCP, inter-VLAN routing, and network connectivity problems, as well as programming using PHP, MySQL,
+      and Python. Possess a diverse skill set that combines both software and network skills. Currently focusing on
+      progressing in network engineering with hands-on experience in designing branch office networks using Cisco
+      Packet Tracer to create secure, scalable, and efficient networks.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Technical Skills</h2>
+    <p>
+      Cisco routing and switching, inter-VLAN routing, DHCP, Dynamic IPv4 allocation, Subnetting, CLI configuration,
+      trunking, LAN / WAN networking, TCP/IP networking, VPN, SD-WAN, C#, HTML, Python, JavaScript, and PHP
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Certifications</h2>
+    <ul>
+      <li>Cisco Certified Network Associate (CCNA)</li>
+      <li>Cisco Introduction to Networks</li>
+      <li>Cisco Switching, Routing, and Wireless Essentials</li>
+      <li>Python Programming Certification</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Projects</h2>
+    <ul>
+      <li>Small office/Home office branch network design</li>
+      <li>Enterprise network (Multi-floor)</li>
+    </ul>
+  </div>
+
+  <footer>
+    © 2026 Thato Maputla | Built with HTML, CSS and JavaScript
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const sections = document.querySelectorAll('.section');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('show');
+          }, index * 150);
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+</body>
+</html>
